@@ -1,6 +1,6 @@
 cask "mac-calendar-widget" do
-  version "1.0.0"
-  sha256 "88ab768f2b7e82081ba962b561a408b6dd5d09455d447a07a2d8cf9e24cac23b"
+  version "1.1.0"
+  sha256 "851e3b8680b5cbe46c9a0744c1a4409b777b66abd0fed21fd77d274ea506f253"
 
   url "https://github.com/yuhaw0715/MacCalendarWidget/releases/download/v#{version}/MacCalendarWidget-v#{version}.zip"
   name "MacCalendarWidget"
