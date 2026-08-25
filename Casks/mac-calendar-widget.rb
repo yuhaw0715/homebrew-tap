@@ -7,7 +7,12 @@ cask "mac-calendar-widget" do
   desc "macOS 原生桌面行事曆小組件，支援 iCloud 與 Google 同步"
   homepage "https://github.com/yuhaw0715/MacCalendarWidget"
 
-  depends_on macos: ">= :sonoma"
+  livecheck do
+    url :url
+    strategy :github_latest
+  end
+
+  depends_on macos: :sonoma
 
   app "MacCalendarWidget.app"
 
@@ -16,4 +21,10 @@ cask "mac-calendar-widget" do
     "~/Library/Containers/com.yuhao.MacCalendarWidget",
     "~/Library/Preferences/com.yuhao.MacCalendarWidget.plist",
   ]
+
+  caveats <<~EOS
+    若首次開啟時出現「無法打開」或「Apple 無法檢查惡意軟體」提示，請在終端機執行以下指令解除隔離：
+      xattr -cr /Applications/MacCalendarWidget.app
+    或在 macOS「系統設定 ➔ 隱私權與安全性」中點擊「仍要開啟」。
+  EOS
 end
