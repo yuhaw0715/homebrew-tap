@@ -19,6 +19,7 @@ cask "mac-calendar-widget" do
   postflight do
     system_command "/usr/bin/xattr", args: ["-cr", "#{appdir}/MacCalendarWidget.app"], sudo: false
     system_command "/usr/bin/pluginkit", args: ["-a", "#{appdir}/MacCalendarWidget.app/Contents/PlugIns/MacCalendarWidgetExtension.appex"], sudo: false
+    system_command "/usr/bin/open", args: ["#{appdir}/MacCalendarWidget.app"], sudo: false
   end
 
   zap trash: [
