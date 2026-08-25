@@ -16,6 +16,11 @@ cask "mac-calendar-widget" do
 
   app "MacCalendarWidget.app"
 
+  postflight do
+    system_command "/usr/bin/xattr", args: ["-cr", "#{appdir}/MacCalendarWidget.app"], sudo: false
+    system_command "/usr/bin/pluginkit", args: ["-a", "#{appdir}/MacCalendarWidget.app/Contents/PlugIns/MacCalendarWidgetExtension.appex"], sudo: false
+  end
+
   zap trash: [
     "~/Library/Application Scripts/com.yuhao.MacCalendarWidget",
     "~/Library/Containers/com.yuhao.MacCalendarWidget",
@@ -23,8 +28,8 @@ cask "mac-calendar-widget" do
   ]
 
   caveats <<~EOS
-    若首次開啟時出現「無法打開」或「Apple 無法檢查惡意軟體」提示，請在終端機執行以下指令解除隔離：
-      xattr -cr /Applications/MacCalendarWidget.app
-    或在 macOS「系統設定 ➔ 隱私權與安全性」中點擊「仍要開啟」。
+    首次使用請先開啟「MacCalendarWidget」應用程式允許行事曆存取權限。
+    若桌面小組件未立即更新，可執行以下指令重啟小組件服務：
+      killall chronod NotificationCenter
   EOS
 end
