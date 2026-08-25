@@ -22,6 +22,12 @@ cask "mac-calendar-widget" do
     system_command "/usr/bin/open", args: ["#{appdir}/MacCalendarWidget.app"], sudo: false
   end
 
+  uninstall_postflight do
+    system_command "/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister", args: ["-u", "#{appdir}/MacCalendarWidget.app"], sudo: false
+    system_command "/usr/bin/pluginkit", args: ["-e", "ignore", "-i", "com.yuhao.MacCalendarWidget.extension"], sudo: false
+    system_command "/usr/bin/killall", args: ["chronod", "NotificationCenter"], sudo: false
+  end
+
   zap trash: [
     "~/Library/Application Scripts/com.yuhao.MacCalendarWidget",
     "~/Library/Containers/com.yuhao.MacCalendarWidget",
