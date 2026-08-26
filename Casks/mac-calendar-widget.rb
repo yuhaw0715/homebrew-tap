@@ -1,6 +1,6 @@
 cask "mac-calendar-widget" do
-  version "1.1.1"
-  sha256 "534c301627fa8f401b2f9e08ce0b761a05d2abfc582e130a2d4a0629c9b2ff74"
+  version "1.1.2"
+  sha256 "2b5f6823b6af7738f275908f86f96010bb00cbe064df23897ca0826d4c290eda"
 
   url "https://github.com/yuhaw0715/MacCalendarWidget/releases/download/v#{version}/MacCalendarWidget-v#{version}.zip"
   name "MacCalendarWidget"
@@ -31,6 +31,7 @@ cask "mac-calendar-widget" do
   zap trash: [
     "~/Library/Application Scripts/com.yuhao.MacCalendarWidget",
     "~/Library/Containers/com.yuhao.MacCalendarWidget",
+    "~/Library/Group Containers/group.com.yuhao.MacCalendarWidget",
     "~/Library/Preferences/com.yuhao.MacCalendarWidget.plist",
   ]
 
