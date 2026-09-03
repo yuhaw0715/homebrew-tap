@@ -1,6 +1,6 @@
 cask "mac-menubar-calendar" do
-  version "1.2.0"
-  sha256 "28df491e699e77f1122d5e8b9ca963044ce9f10584c36b4757788879b7f5d8c4"
+  version "1.2.1"
+  sha256 "24ec894ade0779fd1689d144726ef792d2c6b50f3f8c989de70ac335074179d3"
 
   url "https://github.com/yuhaw0715/MacMenubarCalendar/releases/download/v#{version}/MacMenubarCalendar-v#{version}.zip"
   name "Mac Menubar Calendar"
