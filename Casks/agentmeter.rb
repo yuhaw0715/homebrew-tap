@@ -17,8 +17,7 @@ cask "agentmeter" do
   app "AgentMeter.app"
 
   postflight_steps do
-    run "/usr/bin/xattr", args:  ["-d", "com.apple.quarantine", "AgentMeter.app"],
-                          chdir: :appdir
+    run "/usr/bin/xattr", args: ["-d", "com.apple.quarantine", "{{appdir}}/AgentMeter.app"]
   end
 
   zap trash: [
