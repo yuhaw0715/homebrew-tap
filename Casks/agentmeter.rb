@@ -1,10 +1,10 @@
 cask "agentmeter" do
-  version "1.0.2"
-  sha256 "669c3fc6060345703e113d9abc0f9363c68d9fe22b9836330d02ede904620374"
+  version "1.1.0"
+  sha256 "878f1658cdfe54f76675fbd9a9c5dbcd2529ec3d6a633ab52db0e160e14b28be"
 
   url "https://github.com/yuhaw0715/AgentMeter/releases/download/v#{version}/AgentMeter-v#{version}.zip"
   name "AgentMeter"
-  desc "macOS 原生 AI Coding Agent 使用額度監控器"
+  desc "原生 AI Coding Agent 使用額度監控器"
   homepage "https://github.com/yuhaw0715/AgentMeter"
 
   livecheck do
@@ -16,10 +16,9 @@ cask "agentmeter" do
 
   app "AgentMeter.app"
 
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-d", "com.apple.quarantine", "#{appdir}/AgentMeter.app"],
-                   sudo: false
+  postflight_steps do
+    run "/usr/bin/xattr", args:  ["-d", "com.apple.quarantine", "AgentMeter.app"],
+                          chdir: :appdir
   end
 
   zap trash: [
